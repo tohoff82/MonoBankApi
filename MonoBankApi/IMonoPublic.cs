@@ -7,6 +7,10 @@ namespace MonoBankApi
 {
     public interface IMonoPublic : IDisposable
     {
+        /// <summary>
+        /// Отримати базовий перелік курсів валют 
+        /// </summary>
+        /// <returns>List of CurrencyInfoResponse</returns>
         Task<List<CurrencyInfoResponse>> ReturnCurrencyInfo();
     }
 }

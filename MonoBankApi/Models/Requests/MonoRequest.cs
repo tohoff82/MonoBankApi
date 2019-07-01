@@ -2,6 +2,7 @@
 {
     public abstract class MonoRequest
     {
-        public abstract string Url();
+        public string Url => GetUrl();
+        protected abstract string GetUrl();
     }
 }

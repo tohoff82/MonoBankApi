@@ -16,7 +16,7 @@ namespace MonoBankApi
 
         protected async Task<T> HttpGetAsync<T>(MonoRequest request)
         {
-            var response = await httpClient.GetAsync(request.Url()).ConfigureAwait(false);
+            var response = await httpClient.GetAsync(request.Url).ConfigureAwait(false);
 
             response.EnsureSuccessStatusCode();
 

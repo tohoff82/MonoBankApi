@@ -6,7 +6,7 @@ namespace MonoBankApi.Models.Requests
     {
         private const string path = "/personal/client-info";
 
-        public override string Url()
+        protected override string GetUrl()
         {
             var sb = new StringBuilder(path);
 

@@ -6,7 +6,7 @@ namespace MonoBankApi.Models.Requests
     {
         private const string path = "/bank/currency";
 
-        public override string Url()
+        protected override string GetUrl()
         {
             var sb = new StringBuilder(path);
 
