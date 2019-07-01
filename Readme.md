@@ -1,4 +1,4 @@
-Для вызова методов API создайте соответствующий адаптер
+Для вызова методов API создайте соответствующий адаптер.
 
 <code>
 using (IMonoPersonal adapter = new MonoPersonal(token))
