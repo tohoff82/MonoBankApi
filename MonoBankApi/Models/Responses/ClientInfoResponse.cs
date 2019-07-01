@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace MonoBankApi.Models.Responses
 {
-    public class UserInfoResponse
+    public class ClientInfoResponse
     {
         [JsonProperty("name")]
         public string Name { get; set; }
