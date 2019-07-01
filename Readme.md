@@ -1,5 +1,5 @@
 ## Библиотека для работы с API МоноБанк
-Для вызова методов API создайте соответствующий адаптер (IMonoPersonal or IMonoPublic) и вызовите нужный метод.
+Для вызова методов API создайте соответствующий адаптер (```IMonoPersonal or IMonoPublic```) и вызовите нужный метод.
 ```
 using (IMonoPersonal adapter = new MonoPersonal(token))
 {  
