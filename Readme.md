@@ -1,7 +1,7 @@
 Для вызова методов API создайте соответствующий адаптер.
 
 <code>
-using (IMonoPersonal adapter = new MonoPersonal(token))  
+using (IMonoPersonal adapter = new MonoPersonal(token))
   {  
     var data = adapter.ReturnStatement("1559385897", "1561977897", acc: "zCmoEgPv-xw4dNV20NqzaA").Result;    
   }
