@@ -10,7 +10,7 @@ namespace MonoBankApi.Implements
     {
         public MonoPublic() : base() { }
 
-        public async Task<List<CurrencyInfoResponse>> ReturnCurrencyInfo() =>
+        public async Task<List<CurrencyInfoResponse>> ReturnCurrencyInfoAsync() =>
             await HttpGetAsync<List<CurrencyInfoResponse>>(new CurrencyInfoRequest());
     }
 }

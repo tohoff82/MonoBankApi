@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 
 namespace MonoBankApi.Models.Requests
 {
@@ -9,11 +10,11 @@ namespace MonoBankApi.Models.Requests
         private readonly string account;
         private readonly string path = "/personal/statement";
 
-        public StatementRequest(string from, string to, string account)
+        public StatementRequest(DateTime from, DateTime to, string account)
         {
-            this.to = to;
-            this.from = from;
             this.account = account;
+            this.to = ((DateTimeOffset)to).ToUnixTimeSeconds().ToString();
+            this.from = ((DateTimeOffset)from).ToUnixTimeSeconds().ToString();
         }
 
         protected override string GetUrl()

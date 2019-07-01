@@ -11,15 +11,15 @@ namespace MonoBankApi
         /// Отримання інформації про клієнта та переліку його рахунків
         /// </summary>
         /// <returns>ClientInfoResponse</returns>
-        Task<ClientInfoResponse> ReturnClientInfo();
+        Task<ClientInfoResponse> ReturnClientInfoAsync();
 
         /// <summary>
         /// Отримання виписки за період
         /// </summary>
-        /// <param name="from">часу в секундах в форматі Unix time</param>
-        /// <param name="to">часу в секундах в форматі Unix time</param>
+        /// <param name="from">час початку вибірки</param>
+        /// <param name="to">час кінця вибірки</param>
         /// <param name="acc">Ідентифікатор рахунку, 0 - дефолтний рахунок</param>
         /// <returns>List of StatementResponse</returns>
-        Task<List<StatementResponse>> ReturnStatement(string from, string to, string acc = "0");
+        Task<List<StatementResponse>> ReturnStatementAsync(DateTime from, DateTime to, string acc = "0");
     }
 }

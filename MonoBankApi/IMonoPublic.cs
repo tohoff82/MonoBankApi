@@ -11,6 +11,6 @@ namespace MonoBankApi
         /// Отримати базовий перелік курсів валют 
         /// </summary>
         /// <returns>List of CurrencyInfoResponse</returns>
-        Task<List<CurrencyInfoResponse>> ReturnCurrencyInfo();
+        Task<List<CurrencyInfoResponse>> ReturnCurrencyInfoAsync();
     }
 }
