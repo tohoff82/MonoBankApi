@@ -3,7 +3,7 @@
 ```
 using (IMonoPersonal adapter = new MonoPersonal(token))
 {  
-  var data = adapter.ReturnStatement("1559385897", "1561977897", acc: "zCmoEgPv-xw4dNV20NqzaA").Result;    
+  var data = adapter.ReturnStatement(new DateTime(2019, 06, 01), DateTime.Now, acc: "zCmoEgPv-xw4dNV20NqzaA").Result;    
 }
   ```
 Конструктивная критика приветствуется.
