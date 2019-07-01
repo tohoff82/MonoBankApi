@@ -2,7 +2,7 @@
 
 namespace MonoBankApi
 {
-    public class Class1
+    public class MonoClient
     {
     }
 }
