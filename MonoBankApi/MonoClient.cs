@@ -26,7 +26,7 @@ namespace MonoBankApi
         private async Task<T> UnpackingResponseAsync<T>(HttpResponseMessage responseMessage)
         {
             string json = await responseMessage.Content.ReadAsStringAsync();
-            return await Task.Run(() => JsonConvert.DeserializeObject<T>(json));
+            return JsonConvert.DeserializeObject<T>(json);
         }
 
         public void Dispose() => httpClient.Dispose();
