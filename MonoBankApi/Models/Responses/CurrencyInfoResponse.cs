@@ -2,7 +2,7 @@
 
 namespace MonoBankApi.Models.Responses
 {
-    public class CurrencyInfo
+    public class CurrencyInfoResponse
     {
         [JsonProperty("currencyCodeA")]
         public int CurrencyCodeA { get; set; }
@@ -14,12 +14,12 @@ namespace MonoBankApi.Models.Responses
         public int Date { get; set; }
 
         [JsonProperty("rateSell")]
-        public int RateSell { get; set; }
+        public float RateSell { get; set; }
 
         [JsonProperty("rateBuy")]
-        public int RateBuy { get; set; }
+        public float RateBuy { get; set; }
 
         [JsonProperty("rateCross")]
-        public int RateCross { get; set; }
+        public float RateCross { get; set; }
     }
 }
