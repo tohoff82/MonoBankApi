@@ -2,6 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>tohoff82</Authors>
+    <Company>bizmaster</Company>
+    <Product>MonoBankApi Client</Product>
+    <Description>Library for personal data Monobamk API</Description>
   </PropertyGroup>
 
   <ItemGroup>
