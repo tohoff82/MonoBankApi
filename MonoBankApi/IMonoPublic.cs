@@ -5,7 +5,7 @@ using MonoBankApi.Models.Responses;
 
 namespace MonoBankApi
 {
-    public interface IMonoPublic : IDisposable
+    public interface IMonoPublic
     {
         /// <summary>
         /// Отримати базовий перелік курсів валют 

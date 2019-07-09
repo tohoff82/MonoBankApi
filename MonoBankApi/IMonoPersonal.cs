@@ -5,7 +5,7 @@ using MonoBankApi.Models.Responses;
 
 namespace MonoBankApi
 {
-    public interface IMonoPersonal : IDisposable
+    public interface IMonoPersonal
     {
         /// <summary>
         /// Отримання інформації про клієнта та переліку його рахунків

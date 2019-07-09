@@ -32,9 +32,9 @@ namespace MonoBankApi
                 throw new Exception(err.Description);
             }
 
+            response.Dispose();
+
             return JsonConvert.DeserializeObject<T>(json);
         }
-
-        public void Dispose() => httpClient.Dispose();
     }
 }
