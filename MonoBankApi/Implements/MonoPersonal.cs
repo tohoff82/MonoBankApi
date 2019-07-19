@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using MonoBankApi.Models.Requests;
 using MonoBankApi.Models.Responses;
+using MonoBankApi.Services;
 
 namespace MonoBankApi.Implements
 {
@@ -13,7 +14,7 @@ namespace MonoBankApi.Implements
         public async Task<ClientInfoResponse> ReturnClientInfoAsync() =>
             await HttpGetAsync<ClientInfoResponse>(new ClientInfoRequest());
 
-        public async Task<List<StatementResponse>> ReturnStatementAsync(DateTime from, DateTime to, string acc = "0") =>
-            await HttpGetAsync<List<StatementResponse>>(new StatementRequest(from, to, acc));
+        public async Task<ICollection<StatementResponse>> ReturnStatementAsync(DateTime from, DateTime to, string acc = "0") =>
+            await HttpGetAsync<ICollection<StatementResponse>>(new StatementRequest(from, to, acc));
     }
 }
