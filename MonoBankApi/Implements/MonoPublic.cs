@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using MonoBankApi.Models.Requests;
+using MonoBankApi.Implements.Requests;
 using MonoBankApi.Models.Responses;
 using MonoBankApi.Services;
 
 namespace MonoBankApi.Implements
 {
-    public class MonoPublic : MonoClient, IMonoPublic
+    public class MonoPublic : MonoHttp, IMonoPublic
     {
         public MonoPublic() : base() { }
 

@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using MonoBankApi.Models.Requests;
+using MonoBankApi.Implements.Requests;
 using MonoBankApi.Models.Responses;
 using MonoBankApi.Services;
 
 namespace MonoBankApi.Implements
 {
-    public class MonoPersonal : MonoClient, IMonoPersonal
+    public class MonoPersonal : MonoHttp, IMonoPersonal
     {
         public MonoPersonal(string token) : base(token) { }
 

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace MonoBankApi.Models.Requests
+namespace MonoBankApi.Implements.Requests
 {
     public class StatementRequest : MonoRequest
     {

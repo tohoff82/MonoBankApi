@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MonoBankApi.Models.Requests
+namespace MonoBankApi.Implements.Requests
 {
     public class CurrencyInfoRequest : MonoRequest
     {

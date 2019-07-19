@@ -1,7 +1,7 @@
 ﻿using System;
 using MonoBankApi.Models.RequestBodyes;
 
-namespace MonoBankApi.Models.Requests
+namespace MonoBankApi.Implements.Requests
 {
     public class WebhookRequest : MonoRequest
     {

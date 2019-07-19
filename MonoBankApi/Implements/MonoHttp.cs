@@ -4,7 +4,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using MonoBankApi.Exceptions;
-using MonoBankApi.Models.Requests;
+using MonoBankApi.Implements.Requests;
 using MonoBankApi.Models.Responses;
 
 namespace MonoBankApi.Implements

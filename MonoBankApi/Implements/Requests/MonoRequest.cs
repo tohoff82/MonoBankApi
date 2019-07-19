@@ -1,7 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json;
 
-namespace MonoBankApi.Models.Requests
+namespace MonoBankApi.Implements.Requests
 {
     public abstract class MonoRequest
     {
