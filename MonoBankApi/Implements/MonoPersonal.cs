@@ -11,6 +11,9 @@ namespace MonoBankApi.Implements
     {
         public MonoPersonal(string token) : base(token) { }
 
+        public async Task<bool> SetWebHookAsync(string webhookUrl) =>
+            await WebhookAsync(webhookUrl);
+
         public async Task<ClientInfoResponse> ReturnClientInfoAsync() =>
             await HttpGetAsync<ClientInfoResponse>(new ClientInfoRequest());
 

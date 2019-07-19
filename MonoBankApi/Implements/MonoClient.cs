@@ -11,16 +11,32 @@ namespace MonoBankApi.Implements
     public abstract class MonoClient
     {
         private readonly HttpClient httpClient;
-        private readonly string baseAdress = "https://api.monobank.ua";
+        private readonly string baseEndpoint = "https://api.monobank.ua";
+        private readonly string webhookEndpoint = "personal/webhook";
 
-        public MonoClient() => httpClient = new HttpClient { BaseAddress = new Uri(baseAdress) };
+        public MonoClient() => httpClient = new HttpClient { BaseAddress = new Uri(baseEndpoint) };
         public MonoClient(string token) : this() => httpClient.DefaultRequestHeaders.Add("X-Token", token);
 
         protected async Task<T> HttpGetAsync<T>(MonoRequest request)
         {
-            var response = await httpClient.GetAsync(request.Url);
+            using (var response = await httpClient.GetAsync(request.Url))
+            {
+                return await UnpackingResponseAsync<T>(response);
+            }                
+        }
 
-            return await UnpackingResponseAsync<T>(response);
+        protected async Task<bool> WebhookAsync(string whUrl)
+        {
+            // string body = JsonConvert.SerializeObject(new { webHookUrl = whUrl });
+            // var uri = new Uri(webhookEndpoint, UriKind.Relative);
+
+            using (var response = await httpClient.PostAsync(
+                new Uri(webhookEndpoint, UriKind.Relative),
+                new StringContent(JsonConvert.SerializeObject(
+                    new { webHookUrl = whUrl }))))
+            {
+                return response.IsSuccessStatusCode;
+            }
         }
 
         private async Task<T> UnpackingResponseAsync<T>(HttpResponseMessage response)
@@ -28,7 +44,6 @@ namespace MonoBankApi.Implements
             string json = await response.Content.ReadAsStringAsync();
 
             CheckStatus(response.IsSuccessStatusCode, json);
-            response.Dispose();
 
             return JsonConvert.DeserializeObject<T>(json);
         }
