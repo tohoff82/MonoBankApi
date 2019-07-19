@@ -8,11 +8,10 @@ namespace MonoBankApi
         public readonly IMonoPublic PublicService;
         public readonly IMonoPersonal PersonalService;
 
-        public MonoApi(string webhookUrl, string token)
+        public MonoApi(string token)
         {
             PublicService = new MonoPublic();
             PersonalService = new MonoPersonal(token);
-            PersonalService.SetWebHookAsync(webhookUrl);
         }        
     }
 }
