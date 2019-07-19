@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
@@ -12,30 +13,24 @@ namespace MonoBankApi.Implements
     {
         private readonly HttpClient httpClient;
         private readonly string baseEndpoint = "https://api.monobank.ua";
-        private readonly string webhookEndpoint = "personal/webhook";
 
         public MonoClient() => httpClient = new HttpClient { BaseAddress = new Uri(baseEndpoint) };
         public MonoClient(string token) : this() => httpClient.DefaultRequestHeaders.Add("X-Token", token);
 
         protected async Task<T> HttpGetAsync<T>(MonoRequest request)
         {
-            using (var response = await httpClient.GetAsync(request.Url))
+            using (var response = await httpClient.GetAsync(request.Uri))
             {
                 return await UnpackingResponseAsync<T>(response);
             }                
         }
 
-        protected async Task<bool> WebhookAsync(string whUrl)
+        protected async Task<T> HttpPostAsync<T>(MonoRequest request)
         {
-            // string body = JsonConvert.SerializeObject(new { webHookUrl = whUrl });
-            // var uri = new Uri(webhookEndpoint, UriKind.Relative);
-
-            using (var response = await httpClient.PostAsync(
-                new Uri(webhookEndpoint, UriKind.Relative),
-                new StringContent(JsonConvert.SerializeObject(
-                    new { webHookUrl = whUrl }))))
+            using (var response = await httpClient.PostAsync(request.Uri,
+                new StringContent(request.Body, Encoding.UTF8, "application/json")))
             {
-                return response.IsSuccessStatusCode;
+                return await UnpackingResponseAsync<T>(response);
             }
         }
 
