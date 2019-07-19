@@ -9,13 +9,13 @@ using MonoBankApi.Models.Responses;
 
 namespace MonoBankApi.Implements
 {
-    public abstract class MonoClient
+    public abstract class MonoHttp
     {
         private readonly HttpClient httpClient;
         private readonly string baseEndpoint = "https://api.monobank.ua";
 
-        public MonoClient() => httpClient = new HttpClient { BaseAddress = new Uri(baseEndpoint) };
-        public MonoClient(string token) : this() => httpClient.DefaultRequestHeaders.Add("X-Token", token);
+        public MonoHttp() => httpClient = new HttpClient { BaseAddress = new Uri(baseEndpoint) };
+        public MonoHttp(string token) : this() => httpClient.DefaultRequestHeaders.Add("X-Token", token);
 
         protected async Task<T> HttpGetAsync<T>(MonoRequest request)
         {
