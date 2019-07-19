@@ -2,10 +2,11 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using MonoBankApi.Exceptions;
 using MonoBankApi.Models.Requests;
 using MonoBankApi.Models.Responses;
 
-namespace MonoBankApi
+namespace MonoBankApi.Implements
 {
     public abstract class MonoClient
     {
@@ -26,15 +27,18 @@ namespace MonoBankApi
         {
             string json = await response.Content.ReadAsStringAsync();
 
-            if (!response.IsSuccessStatusCode)
-            {
-                var err = JsonConvert.DeserializeObject<MonoError>(json);
-                throw new Exception(err.Description);
-            }
-
+            CheckStatus(response.IsSuccessStatusCode, json);
             response.Dispose();
 
             return JsonConvert.DeserializeObject<T>(json);
+        }
+        private void CheckStatus(bool is200_OK, string json)
+        {
+            if (!is200_OK)
+            {
+                var err = JsonConvert.DeserializeObject<MonoError>(json);
+                throw new MonoException(err.Description);
+            }
         }
     }
 }
