@@ -12,7 +12,7 @@ namespace MonoBankApi.Services
         /// </summary>
         /// <param name="url">адреса на яку будуть надходити повідомлення</param>
         /// <returns></returns>
-        Task<bool> SetWebHookAsync(string url);
+        Task<WebhookStatus> SetWebHookAsync(string url);
 
         /// <summary>
         /// Отримання інформації про клієнта та переліку його рахунків
