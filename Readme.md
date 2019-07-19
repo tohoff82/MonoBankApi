@@ -4,7 +4,7 @@
 var mono = new MonoBank("token");
 var wh = await mono.PersonalService.SetWebhookAsync("webhookUrl");
 // wh.status = ok;
-var data = mono.PersonalService.ReturnStatement(new DateTime(2019, 06, 01), DateTime.Now, acc: "zCmoEyjv-xw4onV20NqzaA").Result;    
+var data = await mono.PersonalService.ReturnStatement(new DateTime(2019, 06, 01), DateTime.Now, acc: "zCmoEyjv-xw4onV20NqzaA").Result;    
   ```
 Конструктивная критика приветствуется.
 
