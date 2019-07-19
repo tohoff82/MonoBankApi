@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using MonoBankApi.Models.Requests;
 using MonoBankApi.Models.Responses;
+using MonoBankApi.Services;
 
 namespace MonoBankApi.Implements
 {
@@ -10,7 +11,7 @@ namespace MonoBankApi.Implements
     {
         public MonoPublic() : base() { }
 
-        public async Task<List<CurrencyInfoResponse>> ReturnCurrencyInfoAsync() =>
-            await HttpGetAsync<List<CurrencyInfoResponse>>(new CurrencyInfoRequest());
+        public async Task<ICollection<CurrencyInfoResponse>> ReturnCurrencyInfoAsync() =>
+            await HttpGetAsync<ICollection<CurrencyInfoResponse>>(new CurrencyInfoRequest());
     }
 }
