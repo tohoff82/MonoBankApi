@@ -5,26 +5,20 @@ namespace MonoBankApi.Models.Requests
 {
     public class StatementRequest : MonoRequest
     {
-        private readonly string to;
-        private readonly string from;
-        private readonly string account;
-        private readonly string path = "/personal/statement";
+        private readonly string path = string.Empty;
 
         public StatementRequest(DateTime from, DateTime to, string account)
         {
-            this.account = account;
-            this.to = ((DateTimeOffset)to).ToUnixTimeSeconds().ToString();
-            this.from = ((DateTimeOffset)from).ToUnixTimeSeconds().ToString();
+            var sb = new StringBuilder("/personal/statement");
+
+            sb.AppendFormat("/{0}", account)
+             .AppendFormat("/{0}", ((DateTimeOffset)from).ToUnixTimeSeconds().ToString())
+             .AppendFormat("/{0}", ((DateTimeOffset)to).ToUnixTimeSeconds().ToString());
+
+            path = sb.ToString();
         }
 
-        protected override string GetUrl()
-        {
-            var sb = new StringBuilder(path);
-
-            return sb.AppendFormat("/{0}", account)
-                    .AppendFormat("/{0}", from)
-                    .AppendFormat("/{0}", to)
-                    .ToString();
-        }
+        protected override Uri GetUri() =>
+            new Uri(path, UriKind.Relative);
     }
 }
