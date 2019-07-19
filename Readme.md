@@ -1,9 +1,9 @@
 ## Библиотека для работы с API МоноБанк
 Для вызова методов API создайте соответствующий адаптер (```IMonoPersonal or IMonoPublic```) и вызовите нужный метод.
 ```
-IMonoPersonal adapter = new MonoPersonal(token)
+var mono = new MonoApi("webhook-url", "token");
 
-var data = adapter.ReturnStatement(new DateTime(2019, 06, 01), DateTime.Now, acc: "zCmoEyjv-xw4onV20NqzaA").Result;    
+var data = mono.PersonalService.ReturnStatement(new DateTime(2019, 06, 01), DateTime.Now, acc: "zCmoEyjv-xw4onV20NqzaA").Result;    
   ```
 Конструктивная критика приветствуется.
 
