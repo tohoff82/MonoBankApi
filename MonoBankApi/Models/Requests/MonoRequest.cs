@@ -1,8 +1,15 @@
-﻿namespace MonoBankApi.Models.Requests
+﻿using System;
+using Newtonsoft.Json;
+
+namespace MonoBankApi.Models.Requests
 {
     public abstract class MonoRequest
     {
-        public string Url => GetUrl();
-        protected abstract string GetUrl();
+        protected object bodyObj;
+
+        public Uri Uri => GetUri();
+        protected abstract Uri GetUri();
+
+        public string Body => JsonConvert.SerializeObject(bodyObj);
     }
 }
