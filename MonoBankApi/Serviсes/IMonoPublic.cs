@@ -1,9 +1,8 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Collections.Generic;
 using MonoBankApi.Models.Responses;
 
-namespace MonoBankApi
+namespace MonoBankApi.Services
 {
     public interface IMonoPublic
     {
@@ -11,6 +10,6 @@ namespace MonoBankApi
         /// Отримати базовий перелік курсів валют 
         /// </summary>
         /// <returns>List of CurrencyInfoResponse</returns>
-        Task<List<CurrencyInfoResponse>> ReturnCurrencyInfoAsync();
+        Task<ICollection<CurrencyInfoResponse>> ReturnCurrencyInfoAsync();
     }
 }
