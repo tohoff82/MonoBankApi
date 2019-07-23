@@ -47,14 +47,14 @@ namespace MonoBankApi.Helper
             }
         }
 
-        public static string GetSimbolByCode(string code)
+        public static string GetSimbolByCode(int code)
         {
-            return Codes.FirstOrDefault(x => x.Code == code)?.Symbol;
+            return Codes.FirstOrDefault(x => x.Code == code.ToString())?.Symbol;
         }
 
-        public static string GetCurrencyNameByCode(string code)
+        public static string GetCurrencyNameByCode(int code)
         {
-            return Codes.FirstOrDefault(x => x.Code == code)?.Name;
+            return Codes.FirstOrDefault(x => x.Code == code.ToString())?.Name;
         }
     }
 }
