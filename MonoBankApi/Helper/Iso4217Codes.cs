@@ -5,9 +5,6 @@ using System.Diagnostics;
 using System.Collections.Generic;
 using MonoBankApi.Models.ISO;
 using System.Reflection;
-using System.IO;
-using System.Data;
-using System.Resources;
 
 namespace MonoBankApi.Helper
 {
