@@ -33,20 +33,20 @@ namespace MonoBankApi.Helper
                      select new Currency
                      {
                          Country = node.XPathSelectElement("CtryNm")?.Value,
-                         Code = node.XPathSelectElement("Ccy")?.Value,
+                         Symbol = node.XPathSelectElement("Ccy")?.Value,
                          Name = node.XPathSelectElement("CcyNm")?.Value,
-                         Num = node.XPathSelectElement("CcyNbr")?.Value
+                         Code = node.XPathSelectElement("CcyNbr")?.Value
                      }).ToList();
         }
 
-        public static string GetCodeByNumber(string number)
+        public static string GetSimbolByCode(string code)
         {
-            return Codes.FirstOrDefault(x => x.Num == number)?.Code;
+            return Codes.FirstOrDefault(x => x.Code == code)?.Symbol;
         }
 
-        public static string GetCurrencyNameByNumber(string number)
+        public static string GetCurrencyNameByCode(string code)
         {
-            return Codes.FirstOrDefault(x => x.Num == number)?.Name;
+            return Codes.FirstOrDefault(x => x.Code == code)?.Name;
         }
     }
 }
