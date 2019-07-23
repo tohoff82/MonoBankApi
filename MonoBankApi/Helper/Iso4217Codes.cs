@@ -4,13 +4,17 @@ using System.Xml.XPath;
 using System.Diagnostics;
 using System.Collections.Generic;
 using MonoBankApi.Models.ISO;
+using System.Reflection;
+using System.IO;
+using System.Data;
+using System.Resources;
 
 namespace MonoBankApi.Helper
 {
     public static class Iso4217Codes
     {
         private static List<Currency> Codes { get; set; }
-        private const string codesPath = @"./Assets/codes.xml";
+        private const string codesPath = @"..\..\..\Resources\codes.xml";
 
         public static long LoadingSpent { get; }
 
@@ -27,16 +31,20 @@ namespace MonoBankApi.Helper
 
         public static void LoadXml()
         {
-            var document = XElement.Load(codesPath);
+            using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("MonoBankApi.codes.xml"))
+            {
 
-            Codes = (from node in document.Descendants("CcyNtry")
-                     select new Currency
-                     {
-                         Country = node.XPathSelectElement("CtryNm")?.Value,
-                         Symbol = node.XPathSelectElement("Ccy")?.Value,
-                         Name = node.XPathSelectElement("CcyNm")?.Value,
-                         Code = node.XPathSelectElement("CcyNbr")?.Value
-                     }).ToList();
+                var document = XElement.Load(stream);
+
+                Codes = (from node in document.Descendants("CcyNtry")
+                         select new Currency
+                         {
+                             Country = node.XPathSelectElement("CtryNm")?.Value,
+                             Symbol = node.XPathSelectElement("Ccy")?.Value,
+                             Name = node.XPathSelectElement("CcyNm")?.Value,
+                             Code = node.XPathSelectElement("CcyNbr")?.Value
+                         }).ToList();
+            }
         }
 
         public static string GetSimbolByCode(int code)

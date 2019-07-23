@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using MonoBankApi.Helper;
 using Newtonsoft.Json;
 
 namespace MonoBankApi.Models.Responses
@@ -28,5 +29,13 @@ namespace MonoBankApi.Models.Responses
 
         [JsonProperty("cashbackType")]
         public string CashbackType { get; set; } // None, UAH, Miles
+
+        // custom properties
+        [JsonProperty("currencySymbol")]
+        public string CurrencySymbol => Iso4217Codes.GetSimbolByCode(CurrencyCode);
+
+        [JsonProperty("currencyName")]
+        public string CurrencyName => Iso4217Codes.GetCurrencyNameByCode(CurrencyCode);
+
     }
 }
