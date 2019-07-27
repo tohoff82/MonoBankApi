@@ -31,11 +31,13 @@ namespace MonoBankApi.Models.Responses
         public string CashbackType { get; set; } // None, UAH, Miles
 
         // custom properties
-        [JsonProperty("currencySymbol")]
-        public string CurrencySymbol => Iso4217Codes.GetSimbolByCode(CurrencyCode);
+       [JsonProperty("currencySymbol")]
+        public string CurrencySymbol 
+            => Iso4217Codes.GetSymbolByCode(CurrencyCode);
 
         [JsonProperty("currencyName")]
-        public string CurrencyName => Iso4217Codes.GetCurrencyNameByCode(CurrencyCode);
+        public string CurrencyName 
+            => Iso4217Codes.GetNameByCode(CurrencyCode);
 
     }
 }
