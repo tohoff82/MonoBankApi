@@ -1,10 +1,8 @@
-﻿using System;
-
-namespace MonoBankApi.Implements.Requests
+﻿namespace MonoBankApi.Implements.Requests
 {
     class ClientInfoRequest : MonoRequest
     {
-        protected override Uri GetUri() =>
-            new Uri("/personal/client-info", UriKind.Relative);
+        public ClientInfoRequest() : base()
+            => sb.Append("/personal/client-info");
     }
 }
