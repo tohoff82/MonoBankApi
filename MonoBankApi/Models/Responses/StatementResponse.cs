@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using MonoBankApi.Helper;
+using Newtonsoft.Json;
 
 namespace MonoBankApi.Models.Responses
 {
@@ -12,6 +13,9 @@ namespace MonoBankApi.Models.Responses
 
         [JsonProperty("description")]
         public string Description { get; set; }
+
+        [JsonProperty("comment")]
+        public string Comment { get; set; }
 
         [JsonProperty("mcc")]
         public string Mcc { get; set; }
@@ -36,5 +40,14 @@ namespace MonoBankApi.Models.Responses
 
         [JsonProperty("balance")]
         public long Balance { get; set; }
+
+        // custom properties
+        [JsonProperty("currencySymbol")]
+        public string CurrencySymbol
+            => Iso4217Codes.GetSymbolByCode(CurrencyCode);
+
+        [JsonProperty("mccDescription")]
+        public string MccDescription
+            => Iso18245Mcc.GetCategoryNameByCode(Mcc);
     }
 }
