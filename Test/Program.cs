@@ -6,7 +6,7 @@ namespace Test
     class Program
     {
         public static string webhookUrl = "https://9f414946.ngrok.io/api/cards";
-        public static string token = "u6R8M-T5yoxXcg2F-7dSFnCS7u3dAq0N-RSan4zEr54M";
+        public static string token = "jkhhlkhblkhblkhblkhlkh";
 
         static void Main(string[] args)
         {
