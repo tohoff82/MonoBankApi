@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28307.705
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonoBankApi", "MonoBankApi\MonoBankApi.csproj", "{7C3155CB-2A77-4CAA-A9B6-E4DA27BB0BB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{C9FBCC78-9B53-45EA-B820-D9F309A590EE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntgrTest", "IntgrTest\IntgrTest.csproj", "{62544C05-C3FD-43DD-BABB-0AA2653C1343}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{7C3155CB-2A77-4CAA-A9B6-E4DA27BB0BB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C3155CB-2A77-4CAA-A9B6-E4DA27BB0BB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C3155CB-2A77-4CAA-A9B6-E4DA27BB0BB7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C9FBCC78-9B53-45EA-B820-D9F309A590EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C9FBCC78-9B53-45EA-B820-D9F309A590EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C9FBCC78-9B53-45EA-B820-D9F309A590EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C9FBCC78-9B53-45EA-B820-D9F309A590EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62544C05-C3FD-43DD-BABB-0AA2653C1343}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62544C05-C3FD-43DD-BABB-0AA2653C1343}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62544C05-C3FD-43DD-BABB-0AA2653C1343}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62544C05-C3FD-43DD-BABB-0AA2653C1343}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

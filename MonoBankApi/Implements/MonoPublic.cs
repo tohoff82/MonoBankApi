@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Collections.Generic;
 using MonoBankApi.Implements.Requests;
 using MonoBankApi.Models.Responses;
@@ -7,11 +6,16 @@ using MonoBankApi.Services;
 
 namespace MonoBankApi.Implements
 {
-    public class MonoPublic : MonoHttp, IMonoPublic
+    public class MonoPublic : IMonoPublic
     {
-        public MonoPublic() : base() { }
+        private readonly MonoApiContext _context;
 
-        public async Task<ICollection<CurrencyInfoResponse>> ReturnCurrencyInfoAsync() =>
-            await HttpGetAsync<ICollection<CurrencyInfoResponse>>(new CurrencyInfoRequest());
+        public MonoPublic(MonoApiContext context)
+        {
+            _context = context;
+        }
+
+        public async Task<IEnumerable<CurrencyInfoResponse>> ReturnCurrencyInfoAsync() =>
+            await  _context.HttpGetAsync<ICollection<CurrencyInfoResponse>>(new CurrencyInfoRequest());
     }
 }

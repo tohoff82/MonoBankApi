@@ -7,17 +7,22 @@ using MonoBankApi.Services;
 
 namespace MonoBankApi.Implements
 {
-    public class MonoPersonal : MonoHttp, IMonoPersonal
+    public class MonoPersonal : IMonoPersonal
     {
-        public MonoPersonal(string token) : base(token) { }
+        private readonly MonoApiContext _context;
+
+        public MonoPersonal(MonoApiContext context)
+        {
+            _context = context;
+        }
 
         public async Task<WebhookStatus> SetWebHookAsync(string webhookUrl) =>
-            await HttpPostAsync<WebhookStatus>(new WebhookRequest(webhookUrl));
+            await _context.HttpPostAsync<WebhookStatus>(new WebhookRequest(webhookUrl));
 
         public async Task<ClientInfoResponse> ReturnClientInfoAsync() =>
-            await HttpGetAsync<ClientInfoResponse>(new ClientInfoRequest());
+            await _context.HttpGetAsync<ClientInfoResponse>(new ClientInfoRequest());
 
         public async Task<ICollection<StatementResponse>> ReturnStatementAsync(DateTime from, DateTime to, string acc = "0") =>
-            await HttpGetAsync<ICollection<StatementResponse>>(new StatementRequest(from, to, acc));
+            await _context.HttpGetAsync<ICollection<StatementResponse>>(new StatementRequest(from, to, acc));
     }
 }

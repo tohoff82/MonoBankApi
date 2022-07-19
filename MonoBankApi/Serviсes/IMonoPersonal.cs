@@ -8,25 +8,25 @@ namespace MonoBankApi.Services
     public interface IMonoPersonal
     {
         /// <summary>
-        /// Підпис на повідомлення Monobank WebHook
+        /// Monobank WebHook message signature
         /// </summary>
-        /// <param name="url">адреса на яку будуть надходити повідомлення</param>
+        /// <param name="url">The address to which messages will be sent</param>
         /// <returns></returns>
         Task<WebhookStatus> SetWebHookAsync(string url);
 
         /// <summary>
-        /// Отримання інформації про клієнта та переліку його рахунків
+        /// Obtaining information about the client and a list of his accounts
         /// </summary>
         /// <returns>ClientInfoResponse</returns>
         Task<ClientInfoResponse> ReturnClientInfoAsync();
 
         /// <summary>
-        /// Отримання виписки за період
+        /// Receipt of statement for the period
         /// </summary>
-        /// <param name="from">час початку вибірки</param>
-        /// <param name="to">час кінця вибірки</param>
-        /// <param name="acc">Ідентифікатор рахунку, 0 - дефолтний рахунок</param>
+        /// <param name="from">statement start time/param>
+        /// <param name="to">statement finish time</param>
+        /// <param name="acc">Іaccount Id</param>
         /// <returns>List of StatementResponse</returns>
-        Task<ICollection<StatementResponse>> ReturnStatementAsync(DateTime from, DateTime to, string acc = "0");
+        Task<ICollection<StatementResponse>> ReturnStatementAsync(DateTime from, DateTime to, string acc = default);
     }
 }

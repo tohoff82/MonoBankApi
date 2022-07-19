@@ -1,53 +1,31 @@
-﻿using MonoBankApi.Helper;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace MonoBankApi.Models.Responses
 {
     public class StatementResponse
     {
-        [JsonProperty("id")]
-        public string Id { get; set; }
+        public string Id            { get; set; }
 
+        /// <summary>
+        /// Transaction time in seconds in Unix time format
+        /// </summary>
+        /// <value></value>
         [JsonProperty("time")]
-        public int Time { get; set; }
-
-        [JsonProperty("description")]
-        public string Description { get; set; }
-
-        [JsonProperty("comment")]
-        public string Comment { get; set; }
-
-        [JsonProperty("mcc")]
-        public string Mcc { get; set; }
-
-        [JsonProperty("hold")]
-        public bool Hold { get; set; }
-
-        [JsonProperty("amount")]
-        public long Amount { get; set; }
-
-        [JsonProperty("operationAmount")]
+        public int Timestamp        { get; set; }
+        public int Mcc              { get; set; }
+        public int OriginalMcc      { get; set; }
+        public bool Hold            { get; set; }
+        public long Amount          { get; set; }
         public long OperationAmount { get; set; }
-
-        [JsonProperty("currencyCode")]
-        public int CurrencyCode { get; set; }
-
-        [JsonProperty("commissionRate")]
-        public long CommissionRate { get; set; }
-
-        [JsonProperty("cashbackAmount")]
-        public long CashbackAmount { get; set; }
-
-        [JsonProperty("balance")]
-        public long Balance { get; set; }
-
-        // custom properties
-        [JsonProperty("currencySymbol")]
-        public string CurrencySymbol
-            => Iso4217Codes.GetSymbolByCode(CurrencyCode);
-
-        [JsonProperty("mccDescription")]
-        public string MccDescription
-            => Iso18245Mcc.GetCategoryNameByCode(Mcc);
+        public int CurrencyCode     { get; set; }
+        public long CommissionRate  { get; set; }
+        public long CashbackAmount  { get; set; }
+        public long Balance         { get; set; }
+        public string Description   { get; set; }
+        public string Comment       { get; set; }
+        public string ReceiptId     { get; set; }
+        public string InvoiceId     { get; set; }
+        public string CounterEdrpou { get; set; }
+        public string CounterIban   { get; set; }
     }
 }

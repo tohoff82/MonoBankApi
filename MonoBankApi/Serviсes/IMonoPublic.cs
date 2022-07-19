@@ -7,9 +7,9 @@ namespace MonoBankApi.Services
     public interface IMonoPublic
     {
         /// <summary>
-        /// Отримати базовий перелік курсів валют 
+        /// Get a basic list of exchange rates
         /// </summary>
         /// <returns>List of CurrencyInfoResponse</returns>
-        Task<ICollection<CurrencyInfoResponse>> ReturnCurrencyInfoAsync();
+        Task<IEnumerable<CurrencyInfoResponse>> ReturnCurrencyInfoAsync();
     }
 }
