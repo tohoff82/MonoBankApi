@@ -1,10 +1,28 @@
 ## Библиотека для работы с API МоноБанк
-Для вызова методов API создайте клиент ```Monobank```  и воспользуйтесь нужным сервисом.
+Докумментация https://api.monobank.ua/docs/index.html
+Для использования установите пакет <code>[Install-Package CryptoPay.Conector -Version 0.0.1](https://www.nuget.org/packages/Mono.Api.Connector/)</code>
+
+Для вызова методов API воспользуйтесь внедрением зависимостей в ваш контейнер.
 ```
-var mono = new MonoBank("token");
-var wh = await mono.PersonalService.SetWebhookAsync("webhookUrl");  // wh.status = ok;
-var data = await mono.PersonalService.ReturnStatementAsync(new DateTime(2019, 06, 01), DateTime.Now, acc: "zCmoEyjv-xw4onV20NqzaA");    
-  ```
+services.AddMonoApi("token"); 
+
+
+public class ConectorService
+{
+    private readonly IMonoPersonal _conector;
+
+    public ConectorService(IMonoPersonal conector)
+    {
+        _conector = conector;
+    }
+}
+
+...
+
+var result = await _connector.SetWebHookAsync("webhook-url");
+```
+
 Конструктивная критика приветствуется.
+
 
 Если вдруг проявите дикое желание отблагодарить <code> <b>--></b> https://send.monobank.com.ua/NNG8cy25 "</code>
