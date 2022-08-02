@@ -4,7 +4,7 @@
 Для использования установите пакет <code>[Install-Package CryptoPay.Conector -Version 2.0.0](https://www.nuget.org/packages/Mono.Api.Connector/)</code>
 
 Для вызова методов API воспользуйтесь внедрением зависимостей в ваш контейнер.
-```
+```csharp
 services.AddMonoApi("token"); 
 
 ...
