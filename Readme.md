@@ -1,7 +1,7 @@
 ## Библиотека для работы с API МоноБанк
 Докумментация https://api.monobank.ua/docs/index.html
 
-Для использования установите пакет <code>[Install-Package CryptoPay.Conector -Version 2.0.0](https://www.nuget.org/packages/Mono.Api.Connector/)</code>
+Для использования установите пакет <code>[Install-Package Mono.Api.Connector -Version 2.0.0](https://www.nuget.org/packages/Mono.Api.Connector/)</code>
 
 Для вызова методов API воспользуйтесь внедрением зависимостей в ваш контейнер.
 ```csharp
