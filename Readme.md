@@ -27,4 +27,4 @@ var result = await _connector.SetWebHookAsync("webhook-url");
 Конструктивная критика приветствуется.
 
 
-Если вдруг проявите дикое желание отблагодарить <code> <b>--></b> https://send.monobank.com.ua/NNG8cy25 "</code>
+Если вдруг проявите дикое желание отблагодарить <code> <b>--></b> https://send.monobank.ua/4yPJS8ta1c "</code>
